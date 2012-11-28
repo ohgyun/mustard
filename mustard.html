@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mustard - A Simple JavaScript Console UI</title>
+
+<!-- Append prettify.css and mustard.css -->
+<link type="text/css" rel="stylesheet" href="css/prettify.css">
+<link type="text/css" rel="stylesheet" href="css/mustard.css">
+
+</head>
+<body>
+
+<!-- Target element to render to -->
+<div id="console-div"></div>
+
+<!-- Add mustard script -->
+<script src="mustard.min.js"></script>
+<script>
+	
+	// create console ui
+	var m = Mustard({
+		renderTo: 'console-div',
+		height: 400,
+		newToTop: false
+	});
+
+	// print number
+	m.print(12345); 
+	
+	// print string
+	m.print('string');
+	
+	// print comment
+	m.print('// this is comment');
+
+	// print function
+	m.print(function () { alert(1); });
+
+	// print object
+	m.print({
+		foo: 'bar',
+		fruits: ['apple', 'banana', 'grape'],
+		info: {
+			name: 'mustard',
+			version: '0.1'
+		}
+	});
+
+	// print null
+	m.print(null);
+	
+	// print undefined
+	m.print(undefined);
+	
+	// print multiple objects
+	m.print([1, 2, 3], 4, 5, 6); 
+	
+	// print result
+	m.result('This is result'); // indented!
+	
+	// run code, and print code and result 
+	m.run('1 + 2 + 3 + 4 + 5');
+
+	// run code snippet in function
+	m.run(function () {
+		function a() { return 3; } return a();
+	});
+	
+</script>
+
+</body>
+</html>
