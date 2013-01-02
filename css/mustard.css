@@ -5,9 +5,9 @@ pre.prettyprint{margin:0;padding:0;border:0}
 .mustard-wrap{overflow:auto;margin:0;padding:0;background:#f0f0f0;border:1px solid #999}
 .mustard-title{margin:0;padding:10px;color:#666;border-bottom:1px solid #999;font-size:12px;font-weight:bold;font-family:sans-serif}
 .mustard-content{overflow-y:auto;padding:10px;background:#fff;border-top:1px solid #eee}
-.mustard-line{position:relative;border-bottom:1px solid #f4f4f4;}
+.mustard-line{position:relative;font-family:Menlo,Monaco,Consolas,monospace;border-bottom:1px solid #f4f4f4;}
 
 .mustard-line .mustard-prompt{display:none}
 
 .mustard-line.result{margin-left:25px;}
-.mustard-line.result .mustard-prompt{display:block;position:absolute;left:-23px;top:3px;color:#91c6ff;font-size:7px;font-family:sans-serif;}
+.mustard-line.result .mustard-prompt{display:block;position:absolute;left:-23px;top:3px;color:#91c6ff;font-size:7px;}

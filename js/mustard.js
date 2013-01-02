@@ -57,7 +57,7 @@
       width: opt.width || '100%',
       height: opt.height || '100%',
       newOnTop: opt.newOnTop || false,
-      promptStr: opt.promptStr || '--->'
+      promptStr: opt.promptStr || '>>>'
     };
     
     // wrap element
@@ -158,6 +158,13 @@
     
     // run = execute code, print code, result
     function run(code) {
+      code = getFunctionBody(code);
+      print(code);
+      var ret = new Function(String(code))();
+      result(ret);
+    }
+
+    function getFunctionBody(code) {
       if (typeof code === 'function') {
         code = String(code);
         code = code.replace(/\n/mg, '');
@@ -165,18 +172,25 @@
         code = code.substring(0, code.lastIndexOf('}'));
         code = code.replace(/^\s+/g, '').replace(/\s+$/g, '');
       }
-
-      print(code);
-      var ret = (function () {
-        return eval('(function(){' + String(code) + '}())');
-      }());
-      result(ret);
+      return code;
     }
     
     return {
       
+      VERSION: '0.2',
+      
       print: function () {
         print.apply(this, arguments);
+      },
+
+      printFunctionBody: function () {
+        var args = Array.prototype.slice.call(arguments, 0),
+          converted = [];
+
+        for (var i = 0, len = args.length; i < len; i++) {
+          converted.push(getFunctionBody(args[i]));
+        }
+        print.apply(this, converted);
       },
       
       result: function () {
@@ -194,5 +208,6 @@
   window.Mustard = function (opt) {
     return Mustard(opt);
   };
-  
+
+
 }());

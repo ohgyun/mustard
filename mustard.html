@@ -16,7 +16,7 @@
 
 <!-- Add mustard script -->
 <script src="mustard.min.js"></script>
-<script src="js/mustard.js"></script>
+<!-- <script src="js/mustard.js"></script> -->
 <script>
 	
 	// create console ui
@@ -56,6 +56,11 @@
 	
 	// print multiple objects
 	m.print([1, 2, 3], 4, 5, 6); 
+
+	// print function's body only
+	m.printFunctionBody(function () {
+		'This is function body';
+	});
 	
 	// print result
 	m.result('This is result'); // indented!
